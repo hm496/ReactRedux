@@ -1,7 +1,5 @@
 let path = require('path');
-let fs = require('fs');
 let webpack = require('webpack');
-let sassLoader = 'style!css!sass?sourceMap=true&sourceMapContents=true';
 
 module.exports = {
     devtool: "cheap-module-eval-source-map",
@@ -18,41 +16,46 @@ module.exports = {
         publicPath: '/static/',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 include: [
                     path.resolve(__dirname, 'src'),
                 ],
                 exclude: /node_modules/,
-                loaders: ['react-hot', 'babel'],
+                use: ['react-hot-loader', 'babel-loader'],
             },
             {
                 test: /\.scss$/,
-                include: [
-                    path.resolve(__dirname, 'src'),
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true,
+                            sourceMapContents: true
+                        }
+                    }
                 ],
-                loaders: sassLoader,
-            },
-            {
-                test: /\.jsx$/,
                 include: [
-                    path.resolve(__dirname, 'src'),
+                    path.resolve(__dirname, 'css'),
                 ],
-                loaders: ['react-hot', 'babel'],
             },
             {
                 test: /\.(jpe?g|png|gif|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                loaders: 'url-loader?name=img/[name].[hash].[ext]'
+                loader: 'url-loader',
+                options: {
+                    name: 'img/[name].[hash].[ext]'
+                }
             },
         ],
     },
-
     resolve: {
         alias: {
             'react': path.join(__dirname, 'node_modules', 'react'),
         },
-        extensions: ['', '.js', '.jsx', '.scss', '.css'],
+        extensions: ['.js', '.jsx', '.scss', '.css'],
     },
 
     plugins: [
@@ -60,12 +63,11 @@ module.exports = {
             name: 'vendors',
             chunks: ['vendors']
         }),//提取公共模块
-        new webpack.optimize.DedupePlugin(),//删除重复依赖
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             __DEV__: true,
         }),
-        new webpack.NoErrorsPlugin(),//错误不打断程序
+        new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
         new webpack.HotModuleReplacementPlugin(),//模块热替换
     ],
 };
