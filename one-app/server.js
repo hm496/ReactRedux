@@ -32,5 +32,5 @@ app.listen(4560, '0.0.0.0', function (err) {
         console.log(err);
         return;
     }
-    console.log('Listening at http://localhost:4560');
+    console.log('Listening at http://localhost:4560/');
 });
