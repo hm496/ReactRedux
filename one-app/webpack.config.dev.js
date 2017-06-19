@@ -68,7 +68,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.html'),
             inject: 'body', // Inject all scripts into the body
-            hash: true,
+            filename: 'index.html',
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
