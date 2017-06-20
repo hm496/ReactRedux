@@ -9,7 +9,7 @@ module.exports = {
     devtool: "source-map",
     entry: {
         app: ['./src/app'],
-        vendors: ['react', 'react-dom', 'react-router'],
+        vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames'],
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -39,6 +39,7 @@ module.exports = {
                     fallback: "style-loader",
                     use: [
                         "css-loader",
+                        "postcss-loader",
                         "sass-loader"
                     ]
                 }),
@@ -63,22 +64,6 @@ module.exports = {
         extensions: ['.js', '.jsx', '.scss', '.css'],
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    cssnano({
-                        sourcemap: true,
-                        autoprefixer: {
-                            add: true,
-                            remove: true,
-                            browsers: ['last 2 version', 'Chrome 31', 'Safari 8'],
-                        }, discardComments: {
-                            removeAll: true,
-                        },
-                    }),
-                ],
-            }
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             filename: "vendor.js"
@@ -101,7 +86,15 @@ module.exports = {
                 return getPath('css/[name].css').replace('css/js', 'css');
             },
             allChunks: true,
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: {
+                warnings: false,
+                unused: true,
+                dead_code: true,
+            },
+        }),
     ],
 };
 

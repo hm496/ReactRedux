@@ -9,7 +9,7 @@ module.exports = {
             'webpack-hot-middleware/client',
             './src/app.js',
         ],
-        vendors: ['react', 'react-dom', 'react-router'],
+        vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames'],
     },
     output: {
         path: path.resolve(__dirname, 'build'),
