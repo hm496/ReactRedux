@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         app: [
             'webpack-hot-middleware/client',
-            './src/app.js',
+            './src/index',
         ],
         vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames'],
     },

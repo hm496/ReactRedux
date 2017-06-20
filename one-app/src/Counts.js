@@ -2,7 +2,7 @@ import React, {Component, cloneElement} from 'react';
 import PropTypes from 'prop-types';
 
 
-class Tabs extends Component {
+class Counts extends Component {
     constructor(props) {
         super(props);
         this.handleTabClick = this.handleTabClick.bind(this);
@@ -27,4 +27,4 @@ class Tabs extends Component {
         );
     }
 }
-export default Tabs;
+export default Counts;

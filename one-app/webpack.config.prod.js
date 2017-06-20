@@ -8,7 +8,7 @@ let cssnano = require('cssnano');
 module.exports = {
     devtool: "source-map",
     entry: {
-        app: ['./src/app'],
+        app: ['./src/index'],
         vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames'],
     },
     output: {
