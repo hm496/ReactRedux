@@ -44,7 +44,7 @@ module.exports = {
                     ]
                 }),
                 include: [
-                    path.resolve(__dirname, 'css'),
+                    path.resolve(__dirname, 'src'),
                 ],
             },
             {

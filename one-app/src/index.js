@@ -1,13 +1,13 @@
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import styles from '../css/style.scss';
+import styles from './css/style.scss';
 import App from './app';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
 
 //-----jqTabs.js-----
-// import styles from '../css/style.scss';
+// import styles from './css/style.scss';
 // import Tabs from './jqTabs.js';
 //
 // const tab = new Tabs({
