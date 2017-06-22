@@ -2,10 +2,10 @@
 
 Do something with React&Redux.
 
-##Run
+## Run
 
 ### `npm start` 
 
-##Bulid
+## Bulid
 
 ### `npm build` 
