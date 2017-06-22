@@ -2,7 +2,52 @@ import React, {Component, cloneElement} from 'react';
 import ReactDOM, {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 
+class Modal extends Component {
+    constructor(props) {
+        super(props);
+        //状态初始化
+        this.state = {
+            show: false,
+        };
+    }
+
+    componentDidMount() {
+        console.log(this.props);
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+
+    }
+
+    closePortal() {
+        this.props.closePortal();
+    }
+
+    render() {
+        return (
+            <div>
+                <input type="button" value="closePortal" onClick={this.closePortal.bind(this)}/>
+                <h2>{this.props.title}</h2>
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        )
+    }
+}
+
+//Dialog 是一个壳
 class Dialog extends Component {
+    static defaultProps = {
+        onOpen: () => {
+        },
+        onClose: () => {
+        },
+        onUpdate: () => {
+        },
+    };
+
     constructor(props) {
         super(props);
         this.onClickButton = this.onClickButton.bind(this);
@@ -14,14 +59,13 @@ class Dialog extends Component {
 
     onClickButton(e) {
         e.preventDefault();
-
     }
 
     //打开窗口
     openPortal(props = this.props) {
         this.setState({active: true}); //active
         this.renderPortal(props);//渲染dom
-        // this.props.onOpen(this.node);//打开回调
+        this.props.onOpen(this.node);//打开时 回调
     }
 
     //关闭窗口
@@ -57,6 +101,7 @@ class Dialog extends Component {
             this.node = document.createElement('div');
             // 在节点append 到 DOM 之前，执行 CSS 防止无效的重绘
             //this.applyClassNameAndStyle(props);//div 增加class 和 style
+            this.node.className = 'nodeNode';
             document.body.appendChild(this.node);
         } else {
             //当新 props 传下来更新 css
@@ -66,7 +111,7 @@ class Dialog extends Component {
 
         //cloneElement 传递给children子组件 => closePortal关闭窗口方法
         if (typeof props.children.type === 'function') {
-            children = React.cloneElement(props.children, {closePortal: this.closePortal});
+            children = React.cloneElement(props.children, {closePortal: this.closePortal.bind(this)});
         }
 
         //渲染组件
@@ -78,36 +123,59 @@ class Dialog extends Component {
         );
     }
 
-    //由于父组件更新 props 而更新
-    //此方法可以作为 React 在 props 传入后，渲染之前 setState 的
-    //机会。在此方法中调用 setState 是不会二次渲染的
-    componentWillReceiveProps(nextProps) {
-        // this.setState({})
-        // console.log(arguments);
+    // componentWillReceiveProps(nextProps) {
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return true;
+    // }
+
+
+    // componentWillUpdate(nextProps, nextState) {
+    // }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //
+    // }
+
+    // componentDidMount() {
+    //     this.openPortal(this.props);
+    // }
+
+
+    render() {
+        return null;
+    }
+}
+
+
+class Warp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: false
+        };
     }
 
-    //是否 现在更新组件
-    shouldComponentUpdate(nextProps, nextState) {
-        // console.log(arguments);
-        return true;
-    }
-
-    //将要 更新组件
-    componentWillUpdate(nextProps, nextState) {
-        // console.log(arguments);
-    }
-
-    //完成 更新组件
-    componentDidUpdate(prevProps, prevState) {
-        //上一个属性,上一个状态
-        // this 为当前组件的实例
+    openShow() {
+        let myDialog = this.refs.myDialog;
+        myDialog.openPortal(myDialog.props);
     }
 
     render() {
-        if (this.props.openByClickOn) {
-
-        }
+        return (
+            <div>
+                <button onClick={this.openShow.bind(this)}>click</button>
+                <Dialog ref="myDialog">
+                    <Modal ref="myModal" title="My modal">
+                        <p>111</p>
+                        <p>222</p>
+                        <p>333</p>
+                    </Modal>
+                </Dialog>
+            </div>
+        );
     }
-
 }
-export default Dialog;
+
+export default Warp;

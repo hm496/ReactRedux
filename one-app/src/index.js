@@ -1,9 +1,8 @@
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import styles from './css/style.scss';
-import App from './app';
+import Dialog from './dialog';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Dialog />, document.getElementById('root'));
 
 
 //-----jqTabs.js-----
