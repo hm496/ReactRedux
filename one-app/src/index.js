@@ -1,11 +1,26 @@
+//@@@-----reactTabs.js-----
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import Dialog from './dialog';
+import Tabs from './reTab/reTabs.js';
 
-ReactDOM.render(<Dialog />, document.getElementById('root'));
+ReactDOM.render(<Tabs />, document.getElementById('root'));
 
 
-//-----jqTabs.js-----
+//@@@-----Dialog.js-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import Dialog from './dialog';
+//
+// ReactDOM.render(<Dialog />, document.getElementById('root'));
+
+//@@@-----Counts.js-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import Counts from './Counts.js';
+//
+// ReactDOM.render(<Counts />, document.getElementById('root'));
+
+//@@@-----jqTabs.js-----
 // import styles from './css/style.scss';
 // import Tabs from './jqTabs.js';
 //
@@ -19,12 +34,4 @@ ReactDOM.render(<Dialog />, document.getElementById('root'));
 // tab.events.on('change', function (ev) {
 //     console.log(ev);
 // });
-
-//-----counts-----
-// import React, {Component, cloneElement} from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './Counts.js';
-//
-// ReactDOM.render(<App />, document.getElementById('root'));
-
 
