@@ -5,11 +5,6 @@ let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
 
-let a = function () {
-    console.log(JSON.stringify(process.env.NODE_ENV));
-    return JSON.stringify(process.env.NODE_ENV);
-}
-
 module.exports = {
     devtool: "source-map",
     entry: {
