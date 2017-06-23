@@ -5,29 +5,16 @@ import PropTypes from 'prop-types';
 class Modal extends Component {
     constructor(props) {
         super(props);
-        //状态初始化
-        this.state = {
-            show: false,
-        };
-    }
-
-    componentDidMount() {
-        console.log(this.props);
-    }
-
-
-    componentWillReceiveProps(nextProps) {
-
-    }
-
-    closePortal() {
-        this.props.closePortal();
     }
 
     render() {
         return (
             <div>
-                <input type="button" value="closePortal" onClick={this.closePortal.bind(this)}/>
+                <input type="button" value="closePortal"
+                       onClick={() => {
+                           this.props.closePortal()
+                       }}
+                />
                 <h2>{this.props.title}</h2>
                 <div>
                     {this.props.children}
@@ -37,7 +24,7 @@ class Modal extends Component {
     }
 }
 
-//Dialog 是一个壳
+//Dialog 是一个壳,负责渲染Modal到Body,和从Body删除Modal
 class Dialog extends Component {
     static defaultProps = {
         onOpen: () => {
@@ -94,22 +81,26 @@ class Dialog extends Component {
 
     }
 
+    applyClassNameAndStyle(props) {
+        this.node.className = props.className || '';
+        this.node.style = props.style || '';
+    }
+
     //渲染dom
     renderPortal(props) {
         //如果div 不存在,创建div
         if (!this.node) {
             this.node = document.createElement('div');
             // 在节点append 到 DOM 之前，执行 CSS 防止无效的重绘
-            //this.applyClassNameAndStyle(props);//div 增加class 和 style
-            this.node.className = 'nodeNode';
+            this.applyClassNameAndStyle(props);//div 增加class 和 style
             document.body.appendChild(this.node);
         } else {
             //当新 props 传下来更新 css
-            //this.applyClassNameAndStyle(props);
+            this.applyClassNameAndStyle(props);
         }
         let children = props.children;
 
-        //cloneElement 传递给children子组件 => closePortal关闭窗口方法
+        //cloneElement 传递给子组件Modal => closePortal关闭窗口方法
         if (typeof props.children.type === 'function') {
             children = React.cloneElement(props.children, {closePortal: this.closePortal.bind(this)});
         }
@@ -125,36 +116,31 @@ class Dialog extends Component {
 
     // componentWillReceiveProps(nextProps) {
     // }
-
+    //
     // shouldComponentUpdate(nextProps, nextState) {
     //     return true;
     // }
-
-
+    //
     // componentWillUpdate(nextProps, nextState) {
     // }
-
+    //
     // componentDidUpdate(prevProps, prevState) {
     //
     // }
-
+    //
     // componentDidMount() {
     //     this.openPortal(this.props);
     // }
-
 
     render() {
         return null;
     }
 }
 
-
+//内部更新
 class Warp extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            show: false
-        };
     }
 
     openShow() {
@@ -166,7 +152,19 @@ class Warp extends Component {
         return (
             <div>
                 <button onClick={this.openShow.bind(this)}>click</button>
-                <Dialog ref="myDialog">
+                <Dialog
+                    onOpen={() => {
+                        console.log('onOpen');
+                    }}
+                    onClose={() => {
+                        console.log('onClose');
+                    }}
+                    onUpdate={() => {
+                        console.log('onUpdate');
+                    }}
+                    style="background:red;"
+                    className="nodeNode123"
+                    ref="myDialog">
                     <Modal ref="myModal" title="My modal">
                         <p>111</p>
                         <p>222</p>

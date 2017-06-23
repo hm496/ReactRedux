@@ -34,5 +34,5 @@ app.listen(port, 'localhost', function (err) {
         return;
     }
     console.log(`Listening at http://localhost:${port}/`);
-    open(`http://localhost:${port}/`);
+    open(`http://localhost:${port}/`, 'chrome');
 });
