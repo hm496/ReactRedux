@@ -58,6 +58,9 @@ module.exports = {
         ],
     },
     resolve: {
+        alias: {
+            'react': path.join(__dirname, 'node_modules', 'react'),
+        },
         extensions: ['.js', '.jsx', '.scss', '.css'],
     },
     plugins: [
@@ -76,8 +79,6 @@ module.exports = {
             hash: true,
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
-        new webpack.HotModuleReplacementPlugin(),//模块热替换
         new ExtractTextPlugin({
             filename: (getPath) => {
                 return getPath('css/[name].css').replace('css/js', 'css');
