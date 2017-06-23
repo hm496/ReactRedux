@@ -73,7 +73,9 @@ module.exports = {
             filename: "vendor.js"
         }),//提取公共模块
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            'process.env': {
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            },
             __DEV__: true,
         }),
         new htmlWebpackPlugin({

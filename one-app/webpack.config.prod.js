@@ -5,6 +5,11 @@ let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
 
+let a = function () {
+    console.log(JSON.stringify(process.env.NODE_ENV));
+    return JSON.stringify(process.env.NODE_ENV);
+}
+
 module.exports = {
     devtool: "source-map",
     entry: {
@@ -58,20 +63,17 @@ module.exports = {
         ],
     },
     resolve: {
-        alias: {
-            'react': path.join(__dirname, 'node_modules', 'react'),
-        },
         extensions: ['.js', '.jsx', '.scss', '.css'],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            __DEV__: false,
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             filename: "vendor.js"
         }),//提取公共模块
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-            __DEV__: true,
-        }),
         new htmlWebpackPlugin({
             template: path.join(__dirname, 'main.ejs'),
             inject: 'body', // Inject all scripts into the body
@@ -89,6 +91,9 @@ module.exports = {
         }),
         new webpack.optimize.UglifyJsPlugin({
             minimize: true,
+            output: {
+                comments: false,  //remove all comments
+            },
             compress: {
                 warnings: false,
                 unused: true,
