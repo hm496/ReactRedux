@@ -1,7 +1,7 @@
 //@@@-----reactTabs.js-----
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import Tabs from './reTab/reTabs.js';
+import Tabs from './reTab/appTabs.js';
 
 ReactDOM.render(<Tabs />, document.getElementById('root'));
 
