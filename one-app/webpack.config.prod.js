@@ -9,7 +9,7 @@ module.exports = {
     devtool: "source-map",
     entry: {
         app: ['./src/index'],
-        vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames'],
+        vendors: ['react', 'react-dom', 'react-router', 'prop-types', 'classnames', 'events', 'react-css-modules'],
     },
     output: {
         path: path.resolve(__dirname, 'build'),

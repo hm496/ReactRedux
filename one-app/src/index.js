@@ -1,10 +1,17 @@
-//@@@-----CSS Modules-----
+//@@@-----组件间通信-----
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import CSS_Modules from './CSS_Modules/CSS_Modules.js';
+import ConnFS from './connFS/main.js';
 
-ReactDOM.render(<CSS_Modules />, document.getElementById('root'));
+ReactDOM.render(<ConnFS/>, document.getElementById('root'));
 
+
+//@@@-----CSS Modules-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import CSS_Modules from './CSS_Modules/CSS_Modules.js';
+//
+// ReactDOM.render(<CSS_Modules />, document.getElementById('root'));
 
 //@@@-----reactTabs.js-----
 // import React, {Component, cloneElement} from 'react';

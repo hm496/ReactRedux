@@ -1,0 +1,24 @@
+/* components/Button.css */
+$primary-color: #f40;
+:export {
+  primaryColor: $primary-color;
+}
+
+/* dialog.css */
+.root {
+  background-color: #eee;
+}
+
+.confirm {
+  color: red;
+}
+
+.disabledConfirm {
+  color: green;
+}
+
+:global {
+  .btn {
+    background-color: #00C49F;
+  }
+}
