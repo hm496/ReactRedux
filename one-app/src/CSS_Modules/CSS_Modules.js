@@ -22,7 +22,7 @@ class Dialog extends Component {
         });
         return (
             <div styleName="root">
-                <a styleName={cx}>Confirm</a>
+                <a className="btn" styleName={cx}>Confirm</a>
             </div>
         );
     }

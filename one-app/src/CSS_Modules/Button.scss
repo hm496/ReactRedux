@@ -16,3 +16,9 @@ $primary-color: #f40;
 .disabledConfirm {
   color: green;
 }
+
+:global {
+  .btn {
+    background-color: #00C49F;
+  }
+}
