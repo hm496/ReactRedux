@@ -1,10 +1,17 @@
-//@@@-----reactTabs.js-----
+//@@@-----CSS Modules-----
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import Tabs from './reTab/appTabs.js';
+import CSS_Modules from './CSS_Modules/CSS_Modules.js';
 
-ReactDOM.render(<Tabs />, document.getElementById('root'));
+ReactDOM.render(<CSS_Modules />, document.getElementById('root'));
 
+
+//@@@-----reactTabs.js-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import Tabs from './reTab/appTabs.js';
+//
+// ReactDOM.render(<Tabs />, document.getElementById('root'));
 
 //@@@-----Dialog.js-----
 // import React, {Component, cloneElement} from 'react';
