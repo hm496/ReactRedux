@@ -12,8 +12,29 @@ class TabPane extends Component {
         ]).isRequired,
         order: PropTypes.string.isRequired,
         disable: PropTypes.bool,
-        isActive: PropTypes.bool,
+        classPrefix: PropTypes.string,//从TabContent传过来
+        isActive: PropTypes.bool,//从TabContent传过来
     };
+
+    render() {
+        const {classPrefix, className, isActive, children} = this.props;
+        const classes = classnames({
+            [className]: className,
+            [`${classPrefix}-panel`]: true,
+            [`${classPrefix}-active`]: isActive,
+        });
+
+        return (
+            <div
+                role="tabpanel"
+                className={classes}
+            >
+                {children}
+            </div>
+        )
+    }
+
 }
+
 
 export default TabPane;
