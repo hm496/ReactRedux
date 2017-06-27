@@ -1,9 +1,17 @@
-//@@@-----组件间通信-----
+//@@@-----高阶组件----- 通过refs使用引用
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import ConnFS from './connFS/main.js';
+import HOC from './hocs/hocs.js';
 
-ReactDOM.render(<ConnFS/>, document.getElementById('root'));
+ReactDOM.render(<HOC/>, document.getElementById('root'));
+
+
+//@@@-----组件间通信-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import ConnFS from './connFS/main.js';
+//
+// ReactDOM.render(<ConnFS/>, document.getElementById('root'));
 
 
 //@@@-----CSS Modules-----
