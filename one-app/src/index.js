@@ -1,9 +1,9 @@
 //@@@-----高阶组件----- 通过refs使用引用
 import React, {Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-import HOC from './hocs/hocs.js';
+import SelectSearch from './SelectSearch/App';
 
-ReactDOM.render(<HOC/>, document.getElementById('root'));
+ReactDOM.render(<SelectSearch/>, document.getElementById('root'));
 
 
 //@@@-----组件间通信-----
