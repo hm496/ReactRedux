@@ -1,0 +1,8 @@
+{
+  "name": "MongoDB",
+  "version": "0.0.1",
+  "dependencies": {
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.1"
+  }
+}
