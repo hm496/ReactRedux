@@ -1,0 +1,22 @@
+.portrait {
+  box-sizing: border-box;
+  width: 127px;
+  height: 156px;
+  border: 1px solid #D8D8D8;
+}
+
+.portraitimg {
+  width: 78px;
+  height: 78px;
+  margin-top: 20px;
+  margin-left: 25px;
+  border-radius: 50%;
+}
+
+.username {
+  margin-top: 10px;
+  line-height: 28px;
+  font-size: 20px;
+  font-family: "PingFangSC-Semibold";
+  text-align: center;
+}

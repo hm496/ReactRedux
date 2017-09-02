@@ -1,9 +1,34 @@
-//@@@-----优化 Tabs 组件-----
-import React, {Component, cloneElement} from 'react';
+//@@@-----web众筹-----
+import React, { Component, cloneElement } from 'react';
 import ReactDOM from 'react-dom';
-import Tabs from './Tabs_optimised/js/appTabs.js';
+import Zhongchou from './zhongchou/App.js';
+ReactDOM.render(
+  <Zhongchou/>,
+  document.getElementById('root'));
 
-ReactDOM.render(<Tabs/>, document.getElementById('root'));
+//@@@-----评论列表-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import CommentList from './comment/CommentListContainer.js';
+//
+// ReactDOM.render(
+//     <CommentList comments={fetch('/api/response.json')} others="111222"/>,
+//     document.getElementById('root'));
+
+//@@@-----setState 调用栈01-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import State from './setState_react/set01.js';
+//
+// ReactDOM.render(<State/>, document.getElementById('root'));
+
+
+//@@@-----优化 Tabs 组件-----
+// import React, {Component, cloneElement} from 'react';
+// import ReactDOM from 'react-dom';
+// import Tabs from './Tabs_optimised/js/appTabs.js';
+//
+// ReactDOM.render(<Tabs/>, document.getElementById('root'));
 
 
 //@@@-----select组件----- #unfinished

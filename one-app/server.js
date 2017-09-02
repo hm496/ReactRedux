@@ -23,6 +23,9 @@ let webpackDevOptions = {
 //路由
 app.use(devMiddleWare(compiler, webpackDevOptions));
 app.use(hotMiddleWare(compiler));
+
+app.use(express.static('static'));
+
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });

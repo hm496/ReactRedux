@@ -1,0 +1,33 @@
+.input_warpper {
+  box-sizing: border-box;
+  height: 61px;
+  line-height: 61px;
+  border: 1px solid #D8D8D8;
+  white-space: nowrap;
+}
+
+.input_common {
+  font-size: 16px;
+  font-family: "PingFangSC-Regular";
+  vertical-align: top;
+  height: 100%;
+}
+
+.input_title {
+  @extend .input_common;
+  box-sizing: border-box;
+  width: 167px;
+  padding-left: 19px;
+  font-style: normal;
+  display: inline-block;
+}
+
+.input_input {
+  @extend .input_common;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  padding-right: 1em;
+  width: calc(100% - 167px);
+}

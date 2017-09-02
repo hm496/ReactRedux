@@ -1,0 +1,34 @@
+.input_button {
+  font-family: "PingFangSC-Regular";
+  box-sizing: border-box;
+  height: 60px;
+  width: 127px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 1.7px;
+  color: #fff;
+  padding: 0;
+}
+
+.input_button1 {
+  @extend .input_button;
+  background-color: #FFC300;
+}
+
+.input_button2 {
+  @extend .input_button;
+  background-color: #D8D8D8;
+}
+
+.input_button3 {
+  @extend .input_button;
+  background-color: #fff;
+  border: 1px solid #FFC300;
+  color: #FFC300;
+  font-size: 16px;
+}
