@@ -1,19 +1,23 @@
-//@@@-----web众筹-----
+//@@@-----评论列表-----
 import React, { Component, cloneElement } from 'react';
 import ReactDOM from 'react-dom';
-import Zhongchou from './zhongchou/App.js';
+import CommentBox from './comment/CommentBox.js';
+/*import CommentList from './comment/CommentListContainer.js';
 ReactDOM.render(
-  <Zhongchou/>,
+  <CommentList comments={fetch('/api/response.json')} others="111222"/>,
+  document.getElementById('root'));*/
+ReactDOM.render(
+  <CommentBox comments={fetch('/api/response.json')} others="111222"/>,
   document.getElementById('root'));
 
-//@@@-----评论列表-----
-// import React, {Component, cloneElement} from 'react';
+
+//@@@-----web众筹-----
+// import React, { Component, cloneElement } from 'react';
 // import ReactDOM from 'react-dom';
-// import CommentList from './comment/CommentListContainer.js';
-//
+// import Zhongchou from './zhongchou/App.js';
 // ReactDOM.render(
-//     <CommentList comments={fetch('/api/response.json')} others="111222"/>,
-//     document.getElementById('root'));
+//   <Zhongchou/>,
+//   document.getElementById('root'));
 
 //@@@-----setState 调用栈01-----
 // import React, {Component, cloneElement} from 'react';
