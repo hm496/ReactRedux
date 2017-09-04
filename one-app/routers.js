@@ -1,19 +1,17 @@
 var express = require('express');
+var router = express.Router();
 
-var api = express.Router();
 // 该路由使用的中间件
-api.use(function timeLog(req, res, next) {
+router.use(function timeLog(req, res, next) {
   console.log('Time: ', Date.now());
   next();
 });
-// 定义网站主页的路由
-api.post('/', function (req, res) {
-  console.log(req);
-  res.send("242");
+// 定义POST : /api/submit.json
+router.post('/submit.json', function(req, res) {
+  let resJson = {
+    ok: true
+  };
+  res.send(JSON.stringify(resJson));
 });
 
-var Routers = {
-  api,
-}
-
-module.exports = Routers;
+module.exports = router;
