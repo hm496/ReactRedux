@@ -1,14 +1,17 @@
+//@@@-----评论列表FluxApp-----
+import { FluxApp } from './Flux App/js/app';
+
 //@@@-----评论列表-----
-import React, { Component, cloneElement } from 'react';
-import ReactDOM from 'react-dom';
-import CommentBox from './comment/CommentBox.js';
+// import React, { Component, cloneElement } from 'react';
+// import ReactDOM from 'react-dom';
+// import CommentBox from './comment/CommentBox.js';
 /*import CommentList from './comment/CommentListContainer.js';
 ReactDOM.render(
   <CommentList comments={fetch('/api/response.json')} others="111222"/>,
   document.getElementById('root'));*/
-ReactDOM.render(
-  <CommentBox comments={fetch('/api/response.json')} others="111222"/>,
-  document.getElementById('root'));
+// ReactDOM.render(
+//   <CommentBox comments={fetch('/api/response.json')} others="111222"/>,
+//   document.getElementById('root'));
 
 
 //@@@-----web众筹-----
