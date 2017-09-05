@@ -29,12 +29,12 @@ app.use(hotMiddleWare(compiler));
 
 app.use(express.static('static'));
 
-app.get('/', function(req, res, next) {
+app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 let port = 4560;//端口
-app.listen(port, '0.0.0.0', function(err) {
+app.listen(port, '0.0.0.0', function (err) {
   if (err) {
     console.log(err);
     return;

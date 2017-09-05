@@ -70,6 +70,7 @@
     "react-css-modules": "^4.3.0",
     "react-dom": "^15.6.1",
     "react-immutable-render-mixin": "^0.9.7",
-    "react-motion": "^0.5.0"
+    "react-motion": "^0.5.0",
+    "redux": "^3.7.2"
   }
 }
