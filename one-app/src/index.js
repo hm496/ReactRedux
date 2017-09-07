@@ -1,5 +1,8 @@
-//@@@-----Redux中间件-----
+//@@@-----Redux blog博客-----
 import { a } from './ReduxApp/applyMiddleware/index';
+
+//@@@-----Redux中间件-----
+// import { a } from './ReduxApp/applyMiddleware/index';
 
 //@@@-----评论列表FluxApp-----
 // import { FluxApp } from './Flux App/js/app';
