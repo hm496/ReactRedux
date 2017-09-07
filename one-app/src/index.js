@@ -1,11 +1,11 @@
 //@@@-----Redux blog博客-----
-import { a } from './ReduxApp/applyMiddleware/index';
+import sth from './ReduxApp/redux-blog/src/app.js';
 
 //@@@-----Redux中间件-----
-// import { a } from './ReduxApp/applyMiddleware/index';
+// import sth from './ReduxApp/applyMiddleware/index';
 
 //@@@-----评论列表FluxApp-----
-// import { FluxApp } from './Flux App/js/app';
+// import sth from './Flux App/js/app';
 
 //@@@-----评论列表-----
 // import React, { Component, cloneElement } from 'react';

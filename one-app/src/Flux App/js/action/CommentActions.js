@@ -41,7 +41,6 @@ const CommentActions = {
       },
     })
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((value) => {
@@ -53,7 +52,7 @@ const CommentActions = {
             }
           });
           this.loadComment();
-        }
+         `                           `}
       })
       .catch((err) => {
         AppDispatcher.dispatch({
