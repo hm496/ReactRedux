@@ -8,6 +8,7 @@ let open = require("open");
 let app = express();
 let compiler = webpack(config);
 let router = require('./routers.js');
+let compression = require('compression')
 
 let webpackDevOptions = {
   historyApiFallback: true,
@@ -22,11 +23,11 @@ let webpackDevOptions = {
 };
 
 //路由
-app.use('/api', router);
+app.use(compression());
 
 app.use(devMiddleWare(compiler, webpackDevOptions));
 app.use(hotMiddleWare(compiler));
-
+app.use('/api', router);
 app.use(express.static('static'));
 
 app.get('/', function (req, res, next) {

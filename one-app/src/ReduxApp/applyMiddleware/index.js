@@ -41,7 +41,7 @@ function MidLite(...middlewares) {
   dispatch("action");
 }
 
-MidLite(logger, logger, logger, logger2);
+// MidLite(logger, logger, logger, logger2);
 
 //chain数组中都是  middleware(middlewareAPI)执行一次之后的函数
 /*
