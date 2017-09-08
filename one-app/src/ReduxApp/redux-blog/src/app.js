@@ -4,14 +4,14 @@ import configureStore from './redux/configureStore'
 import { Provider } from 'react-redux'
 
 
-import history from './routes/history'
+import { history } from './routes/history'
 import routes from './routes/index'
 
 const store = configureStore();
 
 ReactDOM.render((
   <Provider store={store}>
-    {routes(history)}
+    {routes}
   </Provider>
 ), document.getElementById('root'));
 

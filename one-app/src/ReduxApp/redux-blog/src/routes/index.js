@@ -1,7 +1,7 @@
 // routes/index.js
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import history from './history'
+import { history } from './history'
 
 import Frame from '../views/Frame'
 import Home from '../views/Home'
@@ -9,7 +9,7 @@ import Detail from '../views/Detail'
 import { ConnectedRouter } from 'react-router-redux';
 
 
-const routes = (history) => (
+const routes = (
   <ConnectedRouter history={history}>
     <Route path="/">
       <Frame>
