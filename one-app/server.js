@@ -1,14 +1,22 @@
-let path = require('path');
-let express = require('express');
-let webpack = require('webpack');
-let config = require('./webpack.config.dev');
-let devMiddleWare = require('webpack-dev-middleware');
-let hotMiddleWare = require('webpack-hot-middleware');
-let open = require("open");
-let app = express();
-let compiler = webpack(config);
-let router = require('./routers.js');
-let compression = require('compression')
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const config = require('./webpack.config.dev');
+const devMiddleWare = require('webpack-dev-middleware');
+const hotMiddleWare = require('webpack-hot-middleware');
+const open = require("open");
+const app = express();
+const compiler = webpack(config);
+const router = require('./routers.js');
+const compression = require('compression')
+const httpProxy = require('http-proxy');
+
+const proxy = httpProxy.createProxyServer({});
+const isMock = !!process.env.MOCK_SERVER;
+if (isMock) {
+  console.log('Using mock server...');
+}
+
 
 let webpackDevOptions = {
   historyApiFallback: true,
@@ -30,12 +38,21 @@ app.use(hotMiddleWare(compiler));
 app.use('/api', router);
 app.use(express.static('static'));
 
-app.get('/', function (req, res, next) {
+/*app.all(/^\/api\/(.*)/, (req, res) => {
+  console.log(1);
+  if (isMock) {
+    proxy.web(req, res, { target: 'http://localhost:3011' });
+  } else {
+    proxy.web(req, res, { target: 'http://localhost:5000/api/' });
+  }
+});*/
+
+app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 let port = 4560;//端口
-app.listen(port, '0.0.0.0', function (err) {
+app.listen(port, '0.0.0.0', function(err) {
   if (err) {
     console.log(err);
     return;
