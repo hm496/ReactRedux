@@ -27,15 +27,15 @@ function previewList(state = initialState, action) {
         error: false,
       }
     }
-    case LOAD_ARTICLES: {
+    case LOAD_ARTICLES_SUCCESS: {
       return {
         ...state,
         loading: false,
         error: false,
-        articleList: action.payload.articleList,
+        articleList: action.payload,
       }
     }
-    case LOAD_ARTICLES: {
+    case LOAD_ARTICLES_ERROR: {
       return {
         ...state,
         loading: false,

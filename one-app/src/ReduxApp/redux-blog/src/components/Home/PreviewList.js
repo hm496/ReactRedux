@@ -22,9 +22,13 @@ class PreviewList extends Component {
     if (loading) {
       return <p className="message">Loading...</p>;
     }
-    return articleList.map(item => (
-      <Preview {...item} key={item.id}/>
-    ));
+    return (
+      <div>
+        {articleList.map(item => (
+          <Preview {...item} key={item.id}/>
+        ))}
+      </div>
+    );
   }
 }
 
