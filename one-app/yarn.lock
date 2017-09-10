@@ -4045,6 +4045,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-composable-fetch@^0.3.4:
+  version "0.3.4"
+  resolved "http://registry.npm.taobao.org/redux-composable-fetch/download/redux-composable-fetch-0.3.4.tgz#f4d093bcb5754aa17d6d25095910570a08795e6c"
+
 redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"

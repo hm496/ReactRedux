@@ -18,3 +18,5 @@ class Preview extends Component {
     )
   }
 }
+
+export default Preview;

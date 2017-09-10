@@ -26,5 +26,6 @@ class PreviewList extends Component {
       <Preview {...item} key={item.id}/>
     ));
   }
-
 }
+
+export default PreviewList;
