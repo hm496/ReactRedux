@@ -6,9 +6,7 @@ import { listAction } from './HomeRedux';
 import { push } from 'react-router-redux';
 
 class Home extends Component {
-
   render() {
-    console.log(this.props);
     return (
       <div>
         <h1>Home</h1>

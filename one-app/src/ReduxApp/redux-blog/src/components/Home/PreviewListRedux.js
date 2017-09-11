@@ -48,6 +48,3 @@ function previewList(state = initialState, action) {
 }
 
 export default previewList;
-
-
-

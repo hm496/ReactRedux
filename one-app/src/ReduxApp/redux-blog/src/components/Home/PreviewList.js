@@ -11,18 +11,20 @@ class PreviewList extends Component {
   };
 
   componentDidMount() {
-    this.props.loadArticles();
+    this.props.loadArticles && this.props.loadArticles();
   }
 
   render() {
     console.log(this.props);
     const { loading, error, articleList } = this.props;
-    if (error) {
-      return <p className="message">Oops, something is wrong.</p>;
-    }
     if (loading) {
       return <p className="message">Loading...</p>;
     }
+
+    if (error || !articleList) {
+      return <p className="message">Oops, something is wrong.</p>;
+    }
+
     return (
       <div>
         {articleList.map(item => (
