@@ -5,7 +5,7 @@ import { history } from '../routes/history'
 import createFetchMiddleware from 'redux-composable-fetch';
 import ThunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
-import DevTools from './DevTools';
+import DevTools from '../containers/DevTools';
 
 const FetchMiddleware = createFetchMiddleware({
   afterFetch({ action, result }) {

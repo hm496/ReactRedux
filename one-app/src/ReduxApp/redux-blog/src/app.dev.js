@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import configureStore from './redux/configureStore'
 import { Provider } from 'react-redux'
-import DevTools from './redux/DevTools';
+import DevTools from './containers/DevTools';
 
 import routes from './routes/index'
 
