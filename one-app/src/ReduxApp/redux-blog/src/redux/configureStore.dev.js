@@ -1,5 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { ConnectedRouter, routerMiddleware, routerReducer } from 'react-router-redux';
+import { routerMiddleware, routerReducer } from 'react-router-redux';
 import { history } from '../routes/history'
 
 import createFetchMiddleware from 'redux-composable-fetch';
@@ -22,7 +22,7 @@ const FetchMiddleware = createFetchMiddleware({
 const HistoryMiddleware = routerMiddleware(history);
 //store
 const finalCreateStore = compose(
-  applyMiddleware(HistoryMiddleware, ThunkMiddleware, FetchMiddleware),
+  applyMiddleware(ThunkMiddleware, FetchMiddleware, HistoryMiddleware),
   DevTools.instrument()
 )(createStore);
 const reducer = combineReducers(Object.assign({}, rootReducer, {

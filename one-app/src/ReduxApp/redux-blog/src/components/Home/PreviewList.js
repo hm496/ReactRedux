@@ -15,6 +15,7 @@ class PreviewList extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { loading, error, articleList } = this.props;
     if (error) {
       return <p className="message">Oops, something is wrong.</p>;
@@ -25,7 +26,7 @@ class PreviewList extends Component {
     return (
       <div>
         {articleList.map(item => (
-          <Preview {...item} key={item.id}/>
+          <Preview push={this.props.push} {...item} key={item.id}/>
         ))}
       </div>
     );

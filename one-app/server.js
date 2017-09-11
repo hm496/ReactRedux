@@ -1,3 +1,4 @@
+const http = require('http');
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -47,16 +48,26 @@ app.use(express.static('static'));
   }
 });*/
 
-app.get('/', function(req, res, next) {
+app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-let port = 4560;//端口
-app.listen(port, '0.0.0.0', function(err) {
+let port = process.env.PORT || 4560;//端口
+const server = http.createServer(app);
+server.listen(port, () => {
+  const address = server.address();
+  console.log('Listening on: %j', address);
+  console.log(' -> that probably means: http://localhost:%d', address.port);
+  open(`http://localhost:${port}/`, 'chrome');
+});
+
+/*
+Express  ---  app.listen
+app.listen(port, '0.0.0.0', function (err) {
   if (err) {
     console.log(err);
     return;
   }
   console.log(`Listening at http://localhost:${port}/`);
   open(`http://localhost:${port}/`, 'chrome');
-});
+});*/

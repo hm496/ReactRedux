@@ -3,14 +3,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PreviewList from '../components/Home/PreviewList';
 import { listAction } from './HomeRedux';
+import { push } from 'react-router-redux';
 
 class Home extends Component {
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <h1>Home</h1>
         <PreviewList
+          push={this.props.push}
           {...this.props.list}
           {...this.props.listActions}
         />
@@ -29,6 +32,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     listActions: bindActionCreators(listAction, dispatch),
+    push: bindActionCreators(push, dispatch),
   };
 }
 
